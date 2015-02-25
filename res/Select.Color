@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>选择色彩值|网编工具箱|大海</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<META content="MSHTML 6.00.2900.3157" name=GENERATOR>
+<STYLE>TD {
+	FONT-SIZE: 9pt
+}
+A {
+	FONT-SIZE: 9pt
+}
+P {
+	FONT-SIZE: 9pt
+}
+INPUT {
+	FONT-SIZE: 9pt
+}
+SELECT {
+	FONT-SIZE: 9pt
+}
+TD.s {
+	CURSOR: hand
+}
+</STYLE>
+
+<SCRIPT>
+
+var c=new Array("00","20","40","60","80","A0","C0","FF");
+var b=new Array("00","80","C0","FF");
+
+
+function ColorTable()
+{ var n,color,i,j,k;
+  document.write("<table border=1 width=280>");
+  n=1;
+  for(i=3;i>=0;i--)
+    for(j=7;j>=0;j--)
+      for(k=7;k>=0;k--,n++)
+         { color="#" +b[i]+c[j]+c[k];
+           if( (n-1) % 16==0) document.write("<tr height=16>");
+           document.write("<td bgcolor='" +color+"' class=s width=16 onclick='ClickSelColor(\"" +color+ "\");'></td>");
+           if(n%16==0) document.write("</tr>");
+         }  
+  document.write("</table>");    
+}
+
+function ClickColor(c)
+ {
+  CurColor.style.backgroundColor=c; 
+  CurColorName.innerText=c;
+ }
+function ClickSelColor(c)
+ {
+  CurSelColor.style.backgroundColor=c; 
+  CurSelColorName.innerText=c;
+ }
+ 
+function ClickCancel()
+{ window.returnValue="";
+  window.close();
+}
+
+function ClickOk()
+{
+  window.returnValue=CurSelColorName.innerText;
+  window.close();
+}   
+function Init()
+{
+ if (window.dialogArguments)
+    { ClickColor(window.dialogArguments);
+      ClickSelColor(window.dialogArguments);
+     } 
+ else
+     { ClickColor("#F0F0F0");  
+       ClickSelColor("#F0F0F0");
+     }  
+}  
+</SCRIPT>
+</HEAD>
+<BODY bgColor=#F0F0F0 topMargin=10 onload=Init();>
+<TABLE height=192 cellSpacing=0 cellPadding=0 width=390 align=right border=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=top width=290 height=186 rowSpan=2>
+      <SCRIPT>
+          ColorTable();
+        </SCRIPT>
+    </TD>
+    <TD vAlign=top width=4 background=Separator.gif height=186 
+    rowSpan=2>　</TD>
+    <TD vAlign=top align=middle width=100 height=50>
+      <TABLE border=0>
+        <TBODY>
+        <TR>
+          <TD><INPUT style="WIDTH: 80px; HEIGHT: 21px" onclick=ClickOk(); type=button value=确定 name=bntOK></TD></TR>
+        <TR>
+          <TD><INPUT style="WIDTH: 80px; HEIGHT: 21px" onclick=ClickCancel(); type=button value=取消 name=bntCancel></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD vAlign=bottom align=middle width=100>选中色彩 
+      <TABLE height=70 cellSpacing=0 width=80 border=1>
+        <TBODY>
+        <TR>
+          <TD id=CurSelColor width="100%">　</TD></TR></TBODY></TABLE>
+      <DIV id=CurSelColorName>#C0C0D8</DIV><BR>当前色彩 
+      <TABLE height=70 cellSpacing=0 width=80 border=1>
+        <TBODY>
+        <TR>
+          <TD id=CurColor width="100%">　</TD></TR></TBODY></TABLE>
+      <DIV id=CurColorName>#C0C0D8</DIV></TD></TR></TBODY></TABLE></BODY></HTML>

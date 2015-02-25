@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="gb2312"?>
+<project ver="2.8" name="幻蓝网编工具箱" libEmbed="true" icon="res\icon.ico" CompanyName="幻蓝阁" FileDescription="幻蓝网编工具箱" LegalCopyright="Copyright (C) 孤月蓝风 2013" ProductName="幻蓝网编工具箱" InternalName="幻蓝网编工具箱" FileVersion="0.0.0.15" ProductVersion="0.0.0.15" publishDir="/Publish/" ui="win" output="幻蓝网编工具箱.exe">
+	<file name="main.aau" path="main.aau"/>
+	<folder name="资源文件" path="res" embed="true">
+		<file name="icon.ico" path="res\icon.ico" comment="res\gjx.ico"/>
+		<file name="wlink.gif" path="res\wlink.gif" comment="res\wlink.gif"/>
+		<file name="unformat.gif" path="res\unformat.gif" comment="res\unformat.gif"/>
+		<file name="Undo.gif" path="res\Undo.gif" comment="res\Undo.gif"/>
+		<file name="under.gif" path="res\under.gif" comment="res\under.gif"/>
+		<file name="table.gif" path="res\table.gif" comment="res\table.gif"/>
+		<file name="styles.css" path="res\styles.css" comment="res\styles.css"/>
+		<file name="Separator2.gif" path="res\Separator2.gif" comment="res\Separator2.gif"/>
+		<file name="Separator.gif" path="res\Separator.gif" comment="res\Separator.gif"/>
+		<file name="select.PIC" path="res\select.PIC" comment="res\select.PIC"/>
+		<file name="Select.Color" path="res\Select.Color" comment="res\Select.Color"/>
+		<file name="Redo.gif" path="res\Redo.gif" comment="res\Redo.gif"/>
+		<file name="Preview.gif" path="res\Preview.gif" comment="res\Preview.gif"/>
+		<file name="paste.gif" path="res\paste.gif" comment="res\paste.gif"/>
+		<file name="Normal.gif" path="res\Normal.gif" comment="res\Normal.gif"/>
+		<file name="nlist.gif" path="res\nlist.gif" comment="res\nlist.gif"/>
+		<file name="logo.gif" path="res\logo.gif" comment="res\logo.gif"/>
+		<file name="italic.gif" path="res\italic.gif" comment="res\italic.gif"/>
+		<file name="iright.gif" path="res\iright.gif" comment="res\iright.gif"/>
+		<file name="index.html" path="res\index.html" comment="res\index.html"/>
+		<file name="img.gif" path="res\img.gif" comment="res\img.gif"/>
+		<file name="ileft.gif" path="res\ileft.gif" comment="res\ileft.gif"/>
+		<file name="Html.gif" path="res\Html.gif" comment="res\Html.gif"/>
+		<file name="hr.gif" path="res\hr.gif" comment="res\hr.gif"/>
+		<file name="help.gif" path="res\help.gif" comment="res\help.gif"/>
+		<file name="fontcolor.gif" path="res\fontcolor.gif" comment="res\fontcolor.gif"/>
+		<file name="DownArrow.gif" path="res\DownArrow.gif" comment="res\DownArrow.gif"/>
+		<file name="Delete.gif" path="res\Delete.gif" comment="res\Delete.gif"/>
+		<file name="cut.gif" path="res\cut.gif" comment="res\cut.gif"/>
+		<file name="Copy.Right" path="res\Copy.Right" comment="res\Copy.Right"/>
+		<file name="copy.gif" path="res\copy.gif" comment="res\copy.gif"/>
+		<file name="compose.js" path="res\compose.js" comment="res\compose.js"/>
+		<file name="colorpen.gif" path="res\colorpen.gif" comment="res\colorpen.gif"/>
+		<file name="center.gif" path="res\center.gif" comment="res\center.gif"/>
+		<file name="bold.gif" path="res\bold.gif" comment="res\bold.gif"/>
+		<file name="blist.gif" path="res\blist.gif" comment="res\blist.gif"/>
+		<file name="aright.gif" path="res\aright.gif" comment="res\aright.gif"/>
+		<file name="aleft.gif" path="res\aleft.gif" comment="res\aleft.gif"/>
+		<file name="Add.Table" path="res\Add.Table" comment="res\Add.Table"/>
+	</folder>
+</project>

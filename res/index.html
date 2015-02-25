@@ -1,0 +1,586 @@
+<html>
+<head>
+<title>幻蓝网编工具箱 by 孤月蓝风（Trlanfeng）</title>
+<link rel="stylesheet" type="text/css" href="styles.css">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<style type="text/css">
+<!--
+body, td, th {
+    font-size: 12px;
+}
+-->
+</style>
+</head>
+<body onLoad="DoLayout()" style="margin: 0pt; padding: 1pt;" onmouseup="YBtnClick=false" bgcolor="#E6E6E6" oncontextmenu="return false" scroll="no">
+<div class="yToolbar" id="ParaToolbar">
+    <div class="TBHandle"></div>
+    <select id="ParagraphStyle" class="TBGen" title="Paragraph Format" language="javascript" onChange="doSelectClick('formatBlock',this.value,6);this.selectedIndex=0;">
+        <option class="heading" selected="selected">段落 </option>
+        <option value="Normal">无 </option>
+        <option value="H1">标题 1 &lt;H1&gt;
+        </option>
+        <option value="H2">标题 2 &lt;H2&gt;
+        </option>
+        <option value="H3">标题 3 &lt;H3&gt;
+        </option>
+        <option value="H4">标题 4 &lt;H4&gt;
+        </option>
+        <option value="H5">标题 5 &lt;H5&gt;
+        </option>
+        <option value="H6">标题 6 &lt;H6&gt;
+        </option>
+        <option value="Address">地址 &lt;ADDR&gt;
+        </option>
+        <option value="Formatted">已编排格式 &lt;PRE&gt;
+        </option>
+    </select>
+    <select id="FontName" class="TBGen" title="Font Name" language="javascript" onChange="doSelectClick('fontname',this.value,0);this.selectedIndex=0;">
+        <option class="heading">字体</option>
+        <option value="宋体">宋体</option>
+		<option value="微软雅黑">微软雅黑</option>
+        <option value="黑体">黑体</option>
+        <option value="楷体_GB2312">楷体_GB2312</option>
+        <option value="仿宋_GB2312">仿宋_GB2312</option>
+		<option value="楷体">楷体</option>
+        <option value="仿宋">仿宋</option>
+        <option value="Arial">Arial </option>
+        <option value="Arial Black">Arial Black</option>
+        <option value="Arial Narrow">Arial Narrow</option>
+        <option value="Courier New">Courier New</option>
+		<option value="Georgia">Georgia</option>
+        <option value="System">System</option>
+        <option value="Times New Roman">Times New Roman</option>
+    </select>
+    <select id="FontSize" class="TBGen" title="Font Size" language="javascript" onChange="doSelectClick('fontsize',this.value,0);this.selectedIndex=0;">
+        <option class="heading" selected="selected">大小 </option>
+        <option value="1">1 </option>
+        <option value="2">2 </option>
+        <option value="3">3 </option>
+        <option value="4">4 </option>
+        <option value="5">5 </option>
+        <option value="6">6 </option>
+        <option value="7">7 </option>
+    </select>
+    <select id="OtherFormat" class="TBGen" title="Font Size" language="javascript" onChange="doSelectClick('',this.value,6);this.selectedIndex=0;this.returnValue=false;" size="1" name="selectFontFormat">
+        <option class="heading" selected="selected">格式 </option>
+        <option value="SUP">上标 </option>
+        <option value="SUB">下标 </option>
+        <option value="DEL">删除线 </option>
+        <option value="BIG">增大字体 </option>
+        <option value="SMALL">减小字体 </option>
+    </select>
+    <div class="TBSep"></div>
+</div>
+<div class="yToolbar" id="FormatToolbar">
+    <div class="TBHandle"></div>
+    <div class="Btn" title="创建超链" language="javascript" onClick="format('','',3)">
+        <img class="Ico" src="wlink.gif">
+    </div>
+    <div class="Btn" title="创建图象" language="javascript" onClick="format('','',4)">
+        <img class="Ico" src="img.gif">
+    </div>
+    <div class="Btn" title="插入水平线" language="javascript" onClick="format('InsertHorizontalRule',null,0)">
+        <img class="Ico" src="hr.gif">
+    </div>
+    <div class="Btn" title="插入表格" language="javascript" onClick="format('','',5)">
+        <img class="Ico" src="table.gif">
+    </div>
+    <div class="TBSep"></div>
+    <div class="Btn" title="前景色" language="javascript" onClick="format(this,true,1)" id="FC" style="background-color: rgb(0, 160, 255);">
+        <img class="Ico" src="fontcolor.gif">
+    </div>
+    <div class="BtnArrow" title="选择前景色..." language="javascript" onClick="format(FC,false,1)" style="background-color: rgb(255, 255, 255);">
+        <img class="IcoArrow" src="DownArrow.gif">
+    </div>
+    <div class="Btn" title="背景色" language="javascript" onClick="format(this,true,2)" id="BC" style="background-color: rgb(240, 240, 240);">
+        <img class="Ico" src="colorpen.gif">
+    </div>
+    <div class="BtnArrow" title="选择背景色..." language="javascript" onClick="format(BC,false,2)" style="background-color: rgb(255, 255, 255);">
+        <img class="IcoArrow" src="DownArrow.gif">
+    </div>
+    <div class="TBSep"></div>
+</div>
+<div class="yToolbar" id="FormatToolbar2">
+    <div class="TBHandle"></div>
+    <div class="Btn" title="粗体" language="javascript" onClick="format('bold',null,0);">
+        <img class="Ico" src="bold.gif">
+    </div>
+    <div class="Btn" title="斜体" language="javascript" onClick="format('italic',null,0)">
+        <img class="Ico" src="italic.gif">
+    </div>
+    <div class="Btn" title="下划线" language="javascript" onClick="format('underline',null,0)">
+        <img class="Ico" src="under.gif">
+    </div>
+    <div class="TBSep"></div>
+    <div class="Btn" title="左对齐" name="Justify" language="javascript" onClick="format('justifyleft',null,0)">
+        <img class="Ico" src="aleft.gif">
+    </div>
+    <div class="Btn" title="中间对齐" name="Justify" language="javascript" onClick="format('justifycenter',null,0)">
+        <img class="Ico" src="center.gif">
+    </div>
+    <div class="Btn" title="右对齐" name="Justify" language="javascript" onClick="format('justifyright',null,0)">
+        <img class="Ico" src="aright.gif">
+    </div>
+    <div class="TBSep"></div>
+    <div class="Btn" title="数字编号列表" language="javascript" onClick="format('insertorderedlist',null,0)">
+        <img class="Ico" src="nlist.gif">
+    </div>
+    <div class="Btn" title="点列表" language="javascript" onClick="format('insertunorderedlist',null,0)">
+        <img class="Ico" src="blist.gif">
+    </div>
+    <div class="TBSep"></div>
+    <div class="Btn" title="减量缩进" language="javascript" onClick="format('outdent',null,0)">
+        <img class="Ico" src="ileft.gif">
+    </div>
+    <div class="Btn" title="增量缩进" language="javascript" onClick="format('indent',null,0)">
+        <img class="Ico" src="iright.gif">
+    </div>
+    <div class="TBSep"></div>
+</div>
+<div class="yToolbar" id="FormatToolbar3">
+    <div class="TBHandle"></div>
+    <div class="Btn" title="剪切" language="javascript" onClick="format('cut')">
+        <img class="Ico" src="cut.gif">
+    </div>
+    <div class="Btn" title="复制" language="javascript" onClick="format('copy')">
+        <img class="Ico" src="copy.gif">
+    </div>
+    <div class="Btn" title="粘贴" language="javascript" onClick="format('paste')">
+        <img class="Ico" src="paste.gif">
+    </div>
+    <div class="Btn" title="删除" language="javascript" onClick="format('Delete')">
+        <img class="Ico" src="Delete.gif">
+    </div>
+    <div class="TBSep"></div>
+    <div class="Btn" title="撤消" language="javascript" onClick="format('Undo')">
+        <img class="Ico" src="Undo.gif">
+    </div>
+    <div class="Btn" title="重做" language="javascript" onClick="format('Redo')">
+        <img class="Ico" src="Redo.gif">
+    </div>
+    <div class="Btn" title="去除格式" language="javascript" onClick="format('removeFormat')">
+        <img class="Ico" src="unformat.gif">
+    </div>
+    <div class="TBSep"></div>
+</div>
+<iframe class="Composition" id="Composition" height="250" width="100%"></iframe>
+<div class="EditFormBar" id="EditFormBar">
+    <map class="Emode" name="Map" id="Map">
+        <area shape="RECT" coords="51,1,92,15" href="#" onClick="SelectFormat('Html');">
+        <area shape="RECT" coords="93,1,133,15" href="#" onClick="SelectFormat('Preview');">
+    </map>
+    <map class="Emode" name="Map2" id="Map2">
+        <area shape="RECT" coords="6,1,45,16" href="#" onClick="SelectFormat('Normal');">
+        <area shape="RECT" coords="93,1,133,15" href="#" onClick="SelectFormat('Preview');">
+    </map>
+    <map class="Emode" name="Map3" id="Map3">
+        <area shape="RECT" coords="5,1,47,15" href="#" onClick="SelectFormat('Normal');">
+        <area shape="RECT" coords="47,1,90,15" href="#" onClick="SelectFormat('Html');">
+    </map>
+    <div class="Emode" id="Normal">
+        <table border="0" cellpadding="0" cellspacing="0" height="15" width="100%">
+            <tbody>
+                <tr>
+                    <td align="left"><img src="Normal.gif" usemap="#Map" border="0" height="15" width="135"></td>
+                    <TD style="PADDING-LEFT: 0px" vAlign=top align=right width="100%"><DIV style="PADDING-RIGHT: 10px; PADDING-TOP: 0px" align=right>
+							<input id="iftable" name="iftable" type="checkbox" checked>
+							<label for="iftable">保留表格</label>
+							<INPUT id=ifb style="PADDING-TOP: 0px; TOP: -39px" type=checkbox name=ifb>
+							<LABEL for=ifb>保留粗体(B)</LABEL>
+							<INPUT id=ifstrong style="PADDING-TOP: 0px; TOP: -39px" type=checkbox name=ifstrong>
+							<LABEL for=ifstrong>保留强调(S)</LABEL>
+                            <input id="ifblank" style="TOP: 0px" name="ifblank" type="checkbox" checked>
+                            <label for="ifblank">段前加空格</label>
+                            <input id="ifborder" style="TOP: 0px" name="ifborder" type="checkbox">
+                            <label for="ifborder">图片加边框</label>
+                            <input id="ifimgblank" style="TOP: 0px" name="ifimgblank" type="checkbox">
+                            <label for="ifimgblank">图片之间插入空行</label>
+                            <input id="ifcenter" style="TOP: 0px" name="ifcenter" type="checkbox">
+                            <label for="ifcenter">图片下面文字居中</label>
+                        </DIV></TD>
+                </tr>
+                <tr>
+                    <td colspan="4"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td width="100%" align="right" style="padding:11px 0px;PADDING-RIGHT: 10px;">
+									<input type="text" value="" name="fy_th_jiu" id="fy_th_jiu" />
+									替换为
+									<input type="text" value="" name="fy_th_xin" id="fy_th_xin" />
+									<input type="button" name="fy_th" value="替换" onClick="fy_th()">
+									<input name="" type="button" onClick="fy_bd()" value="全部标点转中文">
+									<input name="" type="button" onClick="CheckWords()" value="文字纠错">
+									<input type="button" name="formatbutton" value="一键排版" onClick="FormatText()">
+									<input type="button" name="copybutton" value="复制出去" onClick="copyToClipBoard()">
+								</td>
+                            </tr>
+                        </table></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="Emode" id="Html" style="display: none;">
+        <table border="0" cellpadding="0" cellspacing="0" height="15" width="100%">
+            <tbody>
+                <tr>
+                    <td align="left"><img src="Html.gif" usemap="#Map2" border="0" height="15" width="135"></td>
+                    <TD style="PADDING-LEFT: 0px" vAlign=top align=right width="100%"><DIV style="PADDING-RIGHT: 6px; PADDING-TOP: 0px" align=center>
+                            <INPUT type="radio">
+                            <font style="font-size:14px;">欢迎使用网络编辑工具箱 -
+                            <A href="http://fengyu.name" target="_blank">幻蓝阁</A>
+                            出品 by trlanfeng</font>
+                            <INPUT type="radio">
+                        </DIV></TD>
+                </tr>
+            </tbody>
+        </table>
+        </BR>
+        <center>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#FF0000"size=3>当前页是html代码编辑页面，可以编辑html代码样式等。</FONT>
+        </center>
+    </div>
+    <div class="Emode" id="Preview" style="display: none;">
+        <table border="0" cellpadding="0" cellspacing="0" height="15" width="100%">
+            <tbody>
+                <tr>
+                    <td align="left"><img src="Preview.gif" usemap="#Map3" border="0" height="15" width="135"></td>
+                    <TD style="PADDING-LEFT: 0px" vAlign=top align=right width="100%"><DIV style="PADDING-RIGHT: 6px; PADDING-TOP: 0px" align=center>
+                            <INPUT type="radio">
+                            <font style="font-size:14px;">欢迎使用网络编辑工具箱 -
+                            <A href="http://fengyu.name" target="_blank">幻蓝阁</A>
+                            出品 by trlanfeng</font>
+                            <INPUT type="radio">
+                        </DIV></TD>
+                </tr>
+            </tbody>
+        </table>
+        </BR>
+        <center>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#FF0000" size=3>当前页是编辑后的预览页面，不可编辑！</FONT>
+        </center>
+    </div>
+</div>
+<div style="display:none;" id="hidd">
+    <STRONG><FONT color=#000000>网络编辑工具箱，一键排版格式化网编工具，网络编辑转帖工具。<font color="#FF0000">持续更新中！</font></FONT></STRONG><br>
+    <br>
+    &diams;&nbsp;孤月蓝风出品，完全免费！网络编辑必备，强烈推荐！<br>
+    <br>
+    【基本介绍】网络编辑超级工具箱提供文章快速格式化一键排版功能，可帮助您快速格式化文章，使之成为合乎规范和标准的文章格式，能有效提高编辑工作效率。<br>
+    <ul>
+        <li>简繁体相互转换</li>
+        <li>可定制段前是否空格</li>
+        <li>可定制图片是否添加1像素边框</li>
+        <li>可定制是否保留文章内容中的表格</li>
+        <li>文字纠错功能【上千个错别字词库】</li>
+        <li>一键排版格式化文章，一键复制出去。</li>
+    </ul>
+    【使用说明】全傻瓜式操作，随便点点鼠标，敲敲键盘就能轻松做个好编辑！<br>
+    <br>
+    文字纠错和图片实例：洁白无暇(洁白无瑕)，黄梁美梦(黄粱美梦)&nbsp;&nbsp;&nbsp;<b>点击下面的<font color="#FF0000">“一键排版”</font>试试吧~</b>
+    <P align=center><FONT color=#ff0000>网络编辑工具箱-一键排版格式化加强版</FONT>：<FONT color=#000000>幻蓝阁 （
+        <A href="http://fengyu.name" target="_blank">Fengyu.name</A>
+        ）</FONT> 出品，欢迎使用！</P>
+    <P align=center><IMG border=0 src="logo.gif"></P>
+</div>
+<script language="Javascript" src="compose.js"></script>
+<script>
+<!--
+//public_description=new Editor
+function Editor() {
+  this.put_html=SetHtml;
+  this.get_html=GetHtml;
+  this.put_text=SetText;
+  this.get_text=GetText;
+  this.CompFocus=GetCompFocus;
+}
+
+function GetCompFocus() {
+  Composition.focus();
+}
+
+function GetText() {
+  return Composition.document.body.innerText;
+}
+
+function SetText(text) {
+  text = text.replace(/\n/g, "<br>")
+  Composition.document.body.innerHTML=text;
+}
+
+function GetHtml() {
+  switch( Format )
+     {
+      case 'Normal':
+         //cleanHtml();
+         return Composition.document.body.innerHTML;
+      case 'Html':
+         return Composition.document.body.innerText;
+      default: //"Preview"
+         return Composition.document.body.innerHTML;
+     }
+}
+
+function SetHtml(sHTML) {
+  switch( Format )
+     {
+      case 'Normal':
+         Composition.document.body.innerHTML=sHTML;
+         break;
+      case 'Html':
+         Composition.document.body.innerText=sHTML;
+         break;
+      default: //"Preview"
+         //Composition.document.body.innerHTML=sHTML;
+         initEditor("Off",sHTML);
+     }
+}
+function   document.onkeydown(){
+    if((event.keyCode==116)||                   //屏蔽F5刷新键
+      (event.ctrlKey && event.keyCode==82)){   //Ctrl+R
+           event.keyCode=0;
+           event.returnValue=false;
+      }
+}
+// -->
+</script>
+<script language="javascript">
+
+function CheckWords() {
+    var n=0
+    var keys="按装|甘败下风|波尿酸|自抱自弃|针贬|泊来品|脉博|松驰|一愁莫展|穿流不息|精萃|重迭|渡假村|防碍|幅射|一幅对联|天翻地复|言简意骇|气慨|一股作气|悬梁刺骨|粗旷|食不裹腹|震憾|凑和|侯车室|迫不急待|既使|一如继往|草管人命|娇揉造作|挖墙角|一诺千斤|不径而走|峻工|不落巢臼|烩炙人口|打腊|死皮癞脸|兰天白云|鼎立相助|再接再励|老俩口|黄梁美梦|了望|水笼头|杀戳|痉孪|美仑美奂|罗唆|蛛丝蚂迹|萎糜不振|沉缅|名信片|默守成规|大姆指|沤心沥血|凭添|出奇不意|修茸|亲睐|磬竹难书|入场卷|声名雀起|发韧|搔痒病|欣尝|谈笑风声|人情事故|有持无恐|额首|称庆|追朔|鬼鬼崇崇|金榜提名|走头无路|趋之若骛|迁徒|洁白无暇|九宵|渲泄|寒喧|弦律|尤如猛虎|膺品|不能自己|竭泽而鱼|滥芋充数|世外桃园|脏款|醮水|蜇伏|装祯|饮鸠止渴|坐阵|旁证博引|灸手可热|九洲|床第之私|姿意妄为|编篡|做月子|我得|我地|络绎不决|别出新裁|疏疏郎郎|渭然成风|浮想连篇|心干情愿|妄费心机|凶神恶刹|沧海一栗|汗流颊背|别巨匠心|锐不可挡|慎时度势|出人投地|错落有至|变本加利|两全齐美|怨天忧人|攻城虐地|戒骄戒燥|莫可明状|事在必行|反躬自醒|开宗明意|义气用事|歪门斜道|唇枪舌箭|失口否认|苦心孤意|大喜过忘|美仑美奂|莫可明状|开宗名义|义气用事|大喜过忘|大喜过旺|意味伸长|云筹帷幄|偏心则暗|大刹风景|明哞善睐|前鞠后恭|如愿已偿|和中共济|山青水秀|加官劲爵|养遵处优|饥肠漉漉|略见一班|依马当先|损身不恤|一张一驰|煽然泪下|篷荜生辉|防患未燃|手不失卷|原形必露|待价而估|情不自尽|不能自己|涣然一新|明辩是非|没精打彩|精兵减政|陈词烂调|迫在眉劫|甘败下风|暄宾夺主|报仇血恨|伤心病狂|风糜一时|敷衍塞职|宠然大物|破锭百出|鞠躬尽粹|脑羞成怒|恂私枉法|气势凶凶|阴谋鬼计|高瞻远嘱|天花乱醉|理曲词穷|偷机取巧|改斜归正|迫不及戴|应接不瑕|头晕目炫|不径而走|分道扬镖|说长到短|万事具备|新新向荣|专心至志|语重心常|弱不经风|暗然失色|重峦跌嶂|巧舌如黄|瞒心寐己"
+    var key = keys.split('|');
+    for (var i=0; i<key.length; i++) {
+    var rng = Composition.document.body.createTextRange();
+    while (rng.findText(key[i])){
+    rng.pasteHTML(rng.text.fontcolor('red'));
+	n++;
+	}
+    }
+	if(n==0)alert("没有发现可疑错别字！");
+	else alert("可疑错别字被加红处理，请修改");
+}
+
+function copyToClipBoard()
+{
+	if ( Format == "Normal")
+	{
+		Composition.document.execCommand('SelectAll');
+		format('copy');
+		alert("已经全部复制到剪贴板!");
+	}
+
+	else
+    alert( '必须在普通模式下操作！' ) ;
+}
+
+function processFormatText(textContext) {
+	var text = textContext;
+	var prefix = "　　";
+	var tmps = text.split("\n");
+	var html = "";
+	for (i = 0; i < tmps.length; i++) {
+		var tmp = tmps[i].trim();
+		if (tmp.length > 0) {
+			if (ifblank.checked)
+			{
+				if(tmp.indexOf("FormatImgID")>0 || tmp.indexOf("FormatTableID")>0)
+				{
+					if (ifcenter.checked)
+						html+=tmp+"<center>\n";
+					else
+						html+=tmp+"\n";
+				} else {
+					if (ifcenter.checked)
+						html += "<p>　　" + tmp + "</p></center>\n";
+					else
+						html += "<p>　　" + tmp + "</p>\n";
+				}
+			} else {
+				if(tmp.indexOf("FormatImgID")>0 || tmp.indexOf("FormatTableID")>0) {
+					if (ifcenter.checked)
+					html+=tmp+"<center>\n";
+					else
+					html+=tmp+"\n";
+				} else {
+					if (ifcenter.checked)
+					html += "<p>" + tmp + "</p></center>\n";
+					else
+					html += "<p>" + tmp + "</p>\n";
+				}
+			}
+		}
+	}
+	return html;
+}
+function FormatText() {
+  var myeditor = document.all.Composition ;
+  	if ( Format == "Normal" )
+	{
+  var temps = new Array();
+  var tmps = new Array();
+  var sec = myeditor.Document.selection.createRange();
+  var tmpText = sec.text;
+  var isPart = tmpText != null && tmpText.trim().length > 0;
+isPart = false; //暂时无法实现局部格式化
+  if (!isPart) {
+    var imgs = myeditor.Document.images;
+    if (imgs != null && imgs.length > 0) {
+      for (j = 0; j < imgs.length; j++) {
+        var t = document.createElement("IMG");
+        t.alt = imgs[j].alt;
+        t.src = imgs[j].src;
+        t.width = imgs[j].width;
+        t.height = imgs[j].height;
+        t.align = imgs[j].align;
+        temps[temps.length] = t;
+      }
+      var formatImgCount = 0;
+      for (j = 0; j < imgs.length;) {
+        imgs[j].outerHTML = "#FormatImgID_" + formatImgCount + "#";
+        formatImgCount++;
+      }
+    }
+   if(iftable.checked)
+   {
+   var tables=myeditor.Document.getElementsByTagName("table");
+   if(tables!=null && tables.length>0)
+   {
+   var formatTableCount=0;
+   for(var k=0;k<tables.length;)
+   {
+   tmps[tmps.length]=tables[k].outerHTML;
+   tables[k].outerHTML="\n#FormatTableID_"+formatTableCount+"#\n";
+   formatTableCount++;
+   }
+   }
+   }
+   var html = processFormatText(myeditor.Document.body.innerText);
+   if(ifb.checked)
+   {
+   var bs=myeditor.Document.getElementsByTagName("b");
+   if(bs!=null && bs.length>0)
+   {
+   var formatBCount=0;
+   for(var k=0;k<bs.length;)
+   {
+   tmps[tmps.length]=bs[k].outerHTML;
+   bs[k].outerHTML="\n#FormatBID_"+formatBCount+"#\n";
+   formatBCount++;
+   }
+   }
+   }
+   var html = processFormatText(myeditor.Document.body.innerText);
+   if(ifstrong.checked)
+   {
+   var strongs=myeditor.Document.getElementsByTagName("strong");
+   if(strongs!=null && strongs.length>0)
+   {
+   var formatStrongCount=0;
+   for(var k=0;k<strongs.length;)
+   {
+   tmps[tmps.length]=strongs[k].outerHTML;
+   strongs[k].outerHTML="\n#FormatStrongID_"+formatStrongCount+"#\n";
+   formatStrongCount++;
+   }
+   }
+   }
+   var html = processFormatText(myeditor.Document.body.innerText);
+   var border="";
+   if(ifborder.checked)
+   border="border=\"1\"";
+   else
+   border="";
+    if (temps != null && temps.length > 0) {
+      for (j = 0; j < temps.length; j++) {
+			if (ifimgblank.checked) {
+				var imghtml = "<center><img src=\"" + temps[j].src + "\" alt=\"" + temps[j].alt + "\" width=\"" + temps[j].width + "\" height=\"" + temps[j].height + "\" align=\"" + temps[j].align + "\" "+border+"></center>&nbsp;";
+			} else {
+				var imghtml = "<center><img src=\"" + temps[j].src + "\" alt=\"" + temps[j].alt + "\" width=\"" + temps[j].width + "\" height=\"" + temps[j].height + "\" align=\"" + temps[j].align + "\" "+border+"></center>";
+			}
+        html = html.replace("#FormatImgID_" + j + "#", imghtml);
+      }
+    }
+    if(iftable.checked)
+    {
+	if(tmps!=null && tmps.length>0)
+	{
+	   for(k=0;k<tmps.length;k++)
+	   {
+	   html=html.replace("#FormatTableID_"+k+"#", tmps[k]);
+	   }
+	}
+	}
+    if(ifb.checked)
+    {
+	if(tmps!=null && tmps.length>0)
+	{
+	   for(k=0;k<tmps.length;k++)
+	   {
+	   html=html.replace("#FormatBID_"+k+"#", tmps[k]);
+	   }
+	}
+	}
+    if(ifstrong.checked)
+    {
+	if(tmps!=null && tmps.length>0)
+	{
+	   for(k=0;k<tmps.length;k++)
+	   {
+	   html=html.replace("#FormatStrongID_"+k+"#", tmps[k]);
+	   }
+	}
+	}
+    Composition.document.body.innerHTML=html;
+  } else {
+   var html = processFormatText(tmpText);
+   html=html.toUpperCase();
+   html=html.replace(/<P>　　<\/P>/g,"");
+   html=html.replace(/<P><\/P>/g,"");
+      sec.pasteHTML(html);
+  }
+  }
+  else
+  alert( '必须在普通模式下操作！' ) ;
+}
+
+String.prototype.trim = function()
+{
+  return this.replace(/(^[\s　]*)|([\s　]*$)/g, "");
+};
+
+String.prototype.leftTrim = function()
+{
+  return this.replace(/(^\s*)/g, "");
+};
+
+String.prototype.rightTrim = function()
+{
+  return this.replace(/(\s*$)/g, "");
+};
+
+function fy_th() {
+	var html = GetHtml();
+	var jiu = fy_th_jiu.value;
+	var xin = fy_th_xin.value;
+	var reg = new RegExp(jiu,"g");
+	html = html.replace(reg, xin);
+	SetHtml(html);
+}
+function fy_bd() {
+	var html = GetHtml();
+	html = html.replace(/,/g, "，");
+	html = html.replace(/\.[^(gif)(jpg)(png)(exe)]/gi, "。");
+	html = html.replace(/\!/g, "！");
+	html = html.replace(/\?/g, "？");
+	html = html.replace(/[^(http)(file)CDEFG]:/gi, "：");
+	html = html.replace(/[^(nbsp)];/gi, "；");
+	html = html.replace(/\(/g, "（");
+	html = html.replace(/\)/g, "）");
+	html = html.replace(/\{/g, "｛");
+	html = html.replace(/\}/g, "｝");
+	html = html.replace(/\[/g, "【");
+	html = html.replace(/\]/g, "】");
+	SetHtml(html);
+}
+</script>
+</body>
+</html>

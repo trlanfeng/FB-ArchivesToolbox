@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>创建图片链接</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<SCRIPT>
+<!--
+function Init()
+{
+ if (window.dialogArguments)
+     document.all.picHrefText.value = window.dialogArguments;
+ document.all.picDir[0].checked = true;
+ document.PICForm.picHrefText2.disabled = true;
+ document.all.picHrefText3.disabled = true;
+// document.all.notice.style.display="none";
+// document.all.nullStr.style.display="";
+ document.all.notice.innerHTML="&nbsp;";
+}
+
+function doSubwinClose(r)
+{  
+ document.all.picHrefText3.value = r; 
+ document.all.picHrefText3.disabled = false;
+// document.all.notice.style.display="";
+// document.all.nullStr.style.display="none";
+  document.all.notice.innerHTML="<font color=\"#FF0000\" size=\"2\">上传成功！系统文件名如下：（请再按‘确定’）</font>";
+}
+
+function ClickCancel()
+{ window.returnValue=null;
+  window.close();
+}
+
+function ClickOk()
+{
+  var Cflag=false;
+  for( var i=0;i<document.all.picDir.length;i++ ){
+       if (document.all.picDir[i].checked) break;
+  }
+
+  switch(document.all.picDir[i].value)
+    {
+     case 'pic1':
+        window.returnValue=document.all.picHrefText.value;
+        Cflag=true;
+        break;
+     default:
+        break;
+    }
+  if (Cflag) window.close();
+}
+
+function selchg(fieldvalue)
+{
+  switch(fieldvalue)
+    {
+     case 'pic1':
+        document.all.picHrefText.disabled = false;
+        document.PICForm.picHrefText2.disabled = true;
+        break;
+     case 'pic2':
+        document.all.picHrefText.disabled = true;
+        document.PICForm.picHrefText2.disabled = false;
+        break;
+     default:
+        break;
+    }
+}
+//-->
+</SCRIPT>
+
+<META content="MSHTML 6.00.2900.3157" name=GENERATOR></HEAD>
+<BODY bgColor=#F0F0F0 topMargin=5 onload=Init(); style="overflow-x:hidden;overflow-y:hidden">
+<TABLE cellSpacing=0 cellPadding=0 width=280 align=center border=0>
+  <TBODY>
+    <TR></br>
+    <TD align=left><FONT size=2.5><INPUT onclick=selchg(this.value) type=radio 
+      value=pic1 name=picDir> 直接输入图片（Internet）位置：例如<FONT 
+      color=#3333ff>http://www.ddsea.com/img/logo.gif</FONT></FONT></TD></TR>
+  <TR>
+    <TD></br><INPUT 
+      style="BORDER-RIGHT: #000000 1px solid; BORDER-TOP: #000000 1px solid; BORDER-LEFT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid" 
+      size=38 name=picHrefText></TD></TR>
+  <TR>
+    <TD align=middle></br><INPUT style="BORDER-RIGHT: #000000 1px solid; BORDER-TOP: #000000 1px solid; BORDER-LEFT: #000000 1px solid; WIDTH: 60px; BORDER-BOTTOM: #000000 1px solid; HEIGHT: 18px" onclick=ClickOk(); type=button value=确认 name=btnOk> 
+<INPUT style="BORDER-RIGHT: #000000 1px solid; BORDER-TOP: #000000 1px solid; BORDER-LEFT: #000000 1px solid; WIDTH: 60px; BORDER-BOTTOM: #000000 1px solid; HEIGHT: 18px" onclick=ClickCancel(); type=button value=取消 name=btnCancel></TD></TR>
+<TR>
+    <TD></br></br></br></br></br>
+      (<FONT size=3 color=#FF0000>*已禁止上传本地图片文件</FONT>)</TD></TR>
+  <TR>
+    <FORM name=PICForm action=uploadPic.php method=post target=_blank encType=img/ED-data>
+    <TD></br><INPUT id=picHrefText2 type=file size=1 name=picHrefText2><INPUT 
+      style="BORDER-RIGHT: #000000 1px solid; BORDER-TOP: #000000 1px solid; BORDER-LEFT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid" 
+      size=1 name=picHrefText3><INPUT onclick=selchg(this.value) type=radio value=pic2 name=picDir><P id=notice></P></TD></FORM></TR>
+  </TBODY></TABLE></BODY></HTML>

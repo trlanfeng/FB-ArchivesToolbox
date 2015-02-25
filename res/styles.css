@@ -1,0 +1,200 @@
+select 
+{
+background:white
+}
+
+table
+{
+position: relative
+}
+
+.Gen
+{
+position: relative
+}
+
+.heading 
+{
+color:navy;background:white;
+}
+
+.Composition
+{
+position: relative;
+background-color: #ffffff
+}
+
+.EditFormBar
+{
+position: relative;
+}
+
+.Emode
+{
+position: absolute;
+}
+
+.yToolbar
+{
+position: relative;
+background-color: white;
+height: 30px;
+top:0;
+left:0;
+border-bottom:1px solid #ccc;
+}
+.yToolbar select
+{
+margin-top:3px;
+border:1px solid silver;
+}
+
+.Btn
+{
+position: absolute;
+background-color: white;
+top: 1px;
+height: 22;
+width: 22;
+margin-top:3px;
+}
+
+.Ico
+{
+position: absolute;
+width: 22;
+height: 22;
+left: -1;
+top: -1;
+}
+
+.TBSep
+{
+position: absolute;
+font-size: 0px;
+top: 1px;
+height: 22px;
+width: 1px;
+}
+
+.TBGen
+{
+position: absolute;
+height: 22px;
+top:2;
+font-family: "ËÎÌו";
+font-size: 12px;
+border:none;
+}
+
+.TBHandle
+{
+position: absolute;
+background-color: white;
+font-size: 1px;
+top: 1px;
+height: 22px;
+width: 3px;
+}
+
+.BtnArrow
+{
+position: absolute;
+background-color: white;
+top: 1px;
+height: 22;
+width: 13;
+}
+
+.BtnArrowOverUp
+{
+position: absolute;
+background-color: white;
+top: 1px;
+height: 22;
+width: 13;
+}
+
+.BtnArrowOverDown
+{
+position: absolute;
+background-color: white;
+top: 1px;
+height: 22;
+width: 13;
+}
+
+.IcoArrow
+{
+position: absolute;
+width: 13;
+height: 20;
+left: 0;
+top: 0;
+}
+
+.IcoArrowDown
+{
+position: absolute;
+left: 0px;
+top: 0px;
+height: 22px;
+width: 13px;
+}
+
+.BtnMouseOverUp
+{
+position: absolute;
+background-color: white;
+top: 1px;
+height: 22px;
+width: 22px;
+}
+
+.BtnMouseOverDown
+{
+position:absolute;
+background-color: white;
+top: 1px;
+height: 22px;
+width: 22px;
+}
+
+.BtnDown
+{
+position: absolute;
+background-color: gainsboro;
+top: 1px;
+height: 22px;
+width: 22px;
+}
+
+.Btnorgl
+{
+
+}
+
+.IcoDown
+{
+position: absolute;
+left: 0px;
+top: 0px;
+height: 22px;
+width: 22px;
+}
+
+.IcoDownPressed
+{
+position: absolute;
+left: 1px;
+top: 1px;
+height: 22px;
+width: 22px;
+}
+
+body
+{
+margin: 2;
+border: 0;
+background-color:white;
+}

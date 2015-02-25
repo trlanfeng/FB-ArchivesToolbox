@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>加强版-网络编辑工具箱-By 大海</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<META content="MSHTML 6.00.2900.3157" name=GENERATOR>
+<STYLE>TD {
+	FONT-SIZE: 9pt; font-face: menu
+}
+A {
+	FONT-SIZE: 9pt; font-face: menu
+}
+P {
+	FONT-SIZE: 9pt; font-face: menu
+}
+INPUT {
+	FONT-SIZE: 9pt; font-face: menu
+}
+</STYLE>
+</HEAD>
+<BODY bgColor=#F0F0F0 onload=btnOK.focus(); >
+<CENTER>
+<TABLE width=350>
+  <TBODY>
+  <TR>
+    <TD width=210 height=14>
+      <FONT color=#000000 size=3><STRONG>网络编辑工具箱-加强版</STRONG></FONT><BR><BR><FONT color=#ff0000 size=2>一键排版网编必备工具 Ver:2011</FONT></P></TD>
+    <TD width=1 background=Separator.gif rowSpan=3></TD>
+    <TD vAlign=bottom width=50 rowSpan=3>
+      <TABLE height="100%" cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+          <TR>
+          <TD>
+          <P><BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;本软件部分自编及收集互联网而来，仅供学习和研究使用，不得用于任何商业用途。如有侵犯版权的，请联系我们。</P>
+          <P>&nbsp;</P><P>&nbsp;
+</P></TD></TR>
+        <TR>
+          <TD><input id=btnOK style="WIDTH: 70px; HEIGHT: 21px" onClick=window.close(); type=button value=确定 name=btnOK>
+            <BR></TD>
+        </TR></TBODY></TABLE></TD></TR>
+    <TR>
+    <TD width=225>加强版：<A 
+      href="http://www.ddsea.com/" target=_blank>大海博客</A>&nbsp;&nbsp;&nbsp;DDSEA<BR>
+          <BR><BR>官方网站：<A 
+      href="http://www.ddsea.com" target=_blank>http://www.DDSEA.COM</A><BR><BR>
+	  <BR><BR>
+      &nbsp;&nbsp;&nbsp;Copyright @ 2011 DDSEA.COM
+      <p><span style="LINE-HEIGHT: 150%">&nbsp;&nbsp;<a href="http://www.ddsea.com/" target="_blank"><img src="Logo.gif" alt="大海" width="190" height="60" border="0"></a></span><BR> 
+          </p>
+      </TD></TR></TBODY></TABLE>
+</CENTER></BODY></HTML>
